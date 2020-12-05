@@ -1,0 +1,146 @@
+/* Variables */
+
+@import 'snow.css';
+
+:root {
+    --tan: #F8EAD6;
+    --off-white: #FFFFFFAF;
+    --white: #FFFFFF;
+    --green: #5D845D;
+    --light-brown: #3E290B7;
+    --brown: #4E2811;
+    --peach: #DE6B6B;
+    --grey: #00000029;
+    --primary-font: ;
+    --secondary-font: font-family: "atten-new",sans-serif;
+    --big-border-radius: 21px;
+}
+
+
+body {
+  background-color: var(--tan);
+  color: var(--brown);
+  font-family: "nunito",sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--green);
+    text-transform: uppercase;
+}
+
+input::placeholder {
+    color: var(--green);   
+}
+.green {
+    color: var(--green);
+}
+.peach{
+    color: var(--peach) !important;
+}
+
+.home-container {
+    margin: auto;
+}
+
+.vertical-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-align {
+    display: flex;
+    justify-content: bottom;
+    align-items: bottom;
+}
+
+.small-text {
+    color: var(--green);
+    font-size: 12px;
+}
+
+.jumbotron{
+    text-align: center;
+    background-color: inherit;
+}
+
+.donate-card {
+    border-radius: var(--big-border-radius);
+}
+
+.logo-container {
+    height: 24rem;
+}
+
+.ginger-bread {
+    background-image: url('../img/logo.png');
+    background-position: center center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    height: 24rem;
+}
+
+.logo-box {
+    background-image: url('../img/logo.png');
+    background-position: center top, center center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.logo-box::after {
+    display: block;
+    content: "Gingerbread Competition";
+    width: auto;
+    height: 18rem;
+    margin-left: 26%;
+    background: transparent url(../img/HFTH_logo-white.svg) no-repeat;
+}
+
+.index .logo-container {
+    height: 36rem;
+}
+
+[input] {
+    width: 200px;
+}
+
+.alert-light {
+    text-align: center;
+}
+
+.card-header {
+    min-height: 9rem;
+    text-align: center;
+    background-color: inherit;
+    border: none;
+}
+
+.name {
+    size: 26px;
+    color: var(--peach);
+    font-family: var(--secondary-font);
+}
+
+.model_address {
+    font-size: 24px;
+    color: var(--brown);
+    font-family: var(--secondary-font);
+}
+
+.home-text {
+    padding-bottom: 4rem;
+}
+
+.masked-elf {
+    display: block;
+    margin: 0 auto;
+    height: 25em;
+}
+
+.sponsors img {
+    width: 500px;
+    height: auto;
+    max-width: 66%;
+    display: block;
+    margin: 0 auto;
+}

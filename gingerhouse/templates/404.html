@@ -1,15 +1,28 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}Page Not Found :({% endblock %}
 
 {% block content %}
-    <h1>Not found <span>:(</span></h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
-    <p>It looks like this was the result of either:</p>
-    <ul>
-        <li>a mistyped address</li>
-        <li>an out-of-date link</li>
-    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Not found <span>:(</span></h1>
+                <p>Sorry, but the page you were trying to view does not exist.</p>
+                <p>It looks like this was the result of either:</p>
+                <ul>
+                    <li>a mistyped address</li>
+                    <li>an out-of-date link</li>
+                </ul>
+                {% include 'includes/donate-please.html' %}
+            </div>
+            <div class="col-sm-4">
+                <img src="{% static 'img/elf-face-mask.png' %}" alt="Helpful Elf" class="masked-elf" />
+            </div>
+        <div>
+    </div>
+    
 {% endblock %}
 
 {% block extra-js %}

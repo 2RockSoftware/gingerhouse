@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% include 'includes/banner.html' with content=house.category %}
+
+    <div class="row">
+        <div class="house col-md-8" id="house-{{ house.id }}">
+            <div class="card-header">
+                <h2 class="name">{{ house.name }}</h2>
+                <h3 class="model_address">{{ house.model_address }}</h3>    
+            </div>
+            <div class="card-body">
+                <img class="card-img-top image" alt="{{ house.name }} image"
+                    src="{% if house.image %}{{ house.image.url }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
+                />
+                <p class="location text-center">
+                    <span class="green">Located At:</span><br>
+                    <span class="display_address">{{ house.display_address }}</span>
+                </p>                    
+            </div>
+        </div>
+        
+        <div class="col-md-4 vertical-align">
+            <form action="{% url 'houses:vote' ginger_house_id=house.id %}" method="POST">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                  <div class="non-field-errors">
+                    {% for err in form.non_field_errors %}
+                      <p class="form-error">{{ err }}</p>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                {% for field in form %}
+                    {% if field.errors %}
+                        <div class="form-group error">
+                            <label class="control-label">{{ field.label }}</label> 
+                            <div class="controls">{{ field }}
+                                <span class="help-inline">
+                                    {% for error in  field.errors %}{{ error }}{% endfor %}
+                                </span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-group">
+                            <label class="control-label">{{ field.label }}</label> 
+                            <div class="controls">{{ field }}
+                                {% if field.help_text %}
+                                    <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+                <div class="form-group text-center">
+                    <button class="btn-success">Vote</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    {% include "includes/email-required-text.html" %}
+{% endblock %}

@@ -10,12 +10,37 @@
     <meta name="keywords" content="{% block meta-keywords %}{% endblock %}">
     {% block extra-meta %}{% endblock %}
     {% block extra-css %}{% endblock %}
-    <script src="{% static 'libs/modernizr.js' %}"></script>
+    <script src="https://kit.fontawesome.com/0705d0ef3a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://use.typekit.net/yfu0yzb.css">
 </head>
-<body>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
+<body class="{% block body_class %}{% endblock %}">
+
+        <div class="container">
+            <div class="snow-container">
+              <i class="fas fa-snowflake"></i>
+              <i class="far fa-snowflake"></i>
+              <i class="fas fa-snowflake"></i>
+              <i class="far fa-snowflake"></i>
+              <i class="fas fa-snowflake"></i>
+              <i class="far fa-snowflake"></i>
+              <i class="fas fa-snowflake"></i>
+              <i class="far fa-snowflake"></i>
+            </div>
+        
+            <!-- change the size of the jumbotron image per page -->
+            <!-- fix the image overlay - and add "Ginger Bread Competition" -->
+            <div class="jumbotron">
+                <div class="container logo-container">
+                      {% include 'includes/logo.html' %}     
+                </div>
+            </div>
+    
+            {% block content %}{% endblock %}
+            {% include 'includes/sponsors.html' %}
+        </div>
     {% block extra-js %}{% endblock %}
 </body>
 </html>
