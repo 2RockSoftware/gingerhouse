@@ -106,7 +106,8 @@ for backend in TEMPLATES:
     if backend['BACKEND'] == 'django.template.backends.django.DjangoTemplates':
         default_loaders = ['django.template.loaders.filesystem.Loader']
         if backend.get('APP_DIRS', False):
-            default_loaders.append('django.template.loaders.app_directories.Loader')
+            default_loaders.append(
+                'django.template.loaders.app_directories.Loader')
             # Django gets annoyed if you both set APP_DIRS True and specify your own loaders
             backend['APP_DIRS'] = False
         loaders = backend['OPTIONS'].get('loaders', default_loaders)
@@ -115,7 +116,8 @@ for backend in TEMPLATES:
                 # We're already caching our templates
                 break
         else:
-            backend['OPTIONS']['loaders'] = [('django.template.loaders.cached.Loader', loaders)]
+            backend['OPTIONS']['loaders'] = [
+                ('django.template.loaders.cached.Loader', loaders)]
 
 # Uncomment if using celery worker configuration
 # CELERY_SEND_TASK_ERROR_EMAILS = True

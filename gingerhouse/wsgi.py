@@ -11,7 +11,8 @@ from . import load_env
 load_env.load_env()
 if 'DATABASE_URL' in os.environ:
     # Dokku or similar
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gingerhouse.settings.deploy")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                          "gingerhouse.settings.deploy")
 else:
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gingerhouse.settings")
 

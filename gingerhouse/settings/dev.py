@@ -24,7 +24,8 @@ CELERY_ALWAYS_EAGER = True
 #: Tell us when a synchronous celery task fails
 CELERY_EAGER_PROPAGATES_EXCEPTIONS = True
 
-SECRET_KEY = os.environ.get('SECRET_KEY', ')vobz8_(exhy#(pp_&c2-5nhr!cmjrai$2$&(#h=%oyx+-$p+p')
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY', ')vobz8_(exhy#(pp_&c2-5nhr!cmjrai$2$&(#h=%oyx+-$p+p')
 
 # Special test settings
 if 'test' in sys.argv:
