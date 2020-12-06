@@ -7,7 +7,7 @@ set -ex
 # of this repository inside the container.
 # Lots of env vars are set, and a bunch of shell vars too.
 # Uncomment the next few lines and try a deploy to see all the current ones.
-#echo "PREDEPLOY SCRIPT"
+echo "PREDEPLOY SCRIPT"
 #echo "Current directory: "$(pwd)
 #echo "LS:"
 #ls -A
