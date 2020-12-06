@@ -17,7 +17,7 @@ echo "PREDEPLOY SCRIPT"
 #set
 #exit 1
 
-mkdir -p $MEDIA_ROOT
+#mkdir -p $MEDIA_ROOT
 
 # NOTE: the buildpack should already have installed our node packages
 # npm run build
