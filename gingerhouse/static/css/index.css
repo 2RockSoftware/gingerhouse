@@ -1,6 +1,7 @@
 /* Variables */
 
 @import 'snow.css';
+@import 'responsive.css';
 
 :root {
     --tan: #F8EAD6;
@@ -11,31 +12,103 @@
     --brown: #4E2811;
     --peach: #DE6B6B;
     --grey: #00000029;
-    --primary-font: ;
-    --secondary-font: font-family: "atten-new",sans-serif;
+    --primary-font: "nunito",sans-serif;
+    --secondary-font: "atten-new", sans-serif;
+    --secondary-font-weight: 700;
+    --secondary-font-style: normal;
     --big-border-radius: 21px;
+    --small-border-radius: .5rem;
 }
 
 
 body {
   background-color: var(--tan);
   color: var(--brown);
-  font-family: "nunito",sans-serif;
+  font-family: var(--primary-font);
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+a:hover {
+    text-decoration: underline;
+    color: inherit !important;
+    text-decoration-color: var(--green);
+}
+
+h1, h2, h3, h4, h5, h6, a {
     color: var(--green);
     text-transform: uppercase;
+    font-family: var(--secondary-font);
+    font-weight: var(--secondary-font-weight);
+    font-style: var(--secondary-font-style);
+}
+
+input[name=email] {
+    width: 100%;
+    height: 2.5rem;
 }
 
 input::placeholder {
     color: var(--green);   
+    padding-left: 1rem;
 }
+
+form {
+    width: 100%;
+}
+
+.help-inline {
+    margin-top: -1rem;
+    padding-left: 1rem;
+}
+
+.controls {
+    width: 100%;
+}
+
+.btn {
+    border-radius: var(--small-border-radius);
+}
+
+.white {
+    color: white !important;
+    width: 18rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.detail .white {
+    width: auto !important;
+}
+
 .green {
     color: var(--green);
 }
+
 .peach{
     color: var(--peach) !important;
+}
+
+.background-green {
+    background: var(--green);
+}
+
+.padding-bottom-10rem {
+    padding-bottom: 10rem;
+}
+
+.padding-bottom-5rem {
+    padding-bottom: 5rem;
+}
+
+.btn {
+    width: 10rem;
+    height: 3.5rem;
+    color: white;
+    font-weight: bolder;
+}
+
+.errors {
+    color: red;
 }
 
 .home-container {
@@ -46,6 +119,10 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.center-block {
+    display: flex;
+    justify-content: center;
 }
 
 .bottom-align {
@@ -59,6 +136,11 @@ input::placeholder {
     font-size: 12px;
 }
 
+.index .jumbotron {
+    margin-bottom: 8rem;
+
+}
+
 .jumbotron{
     text-align: center;
     background-color: inherit;
@@ -66,46 +148,74 @@ input::placeholder {
 
 .donate-card {
     border-radius: var(--big-border-radius);
+    margin: 0rem auto 4rem auto;
+    padding: 2rem;
 }
 
 .logo-container {
-    height: 24rem;
+    height: 27rem;
 }
 
 .ginger-bread {
     background-image: url('../img/logo.png');
     background-position: center center;
-    background-size: auto 100%;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     height: 24rem;
 }
 
 .logo-box {
-    background-image: url('../img/logo.png');
+    background-image: url('../img/Gingerbread_logo.png');
     background-position: center top, center center;
-    background-size: auto 100%;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     height: 100%;
-}
-.logo-box::after {
-    display: block;
-    content: "Gingerbread Competition";
-    width: auto;
-    height: 18rem;
-    margin-left: 26%;
-    background: transparent url(../img/HFTH_logo-white.svg) no-repeat;
 }
 
 .index .logo-container {
     height: 36rem;
 }
 
-[input] {
-    width: 200px;
+
+i:hover {
+    text-decoration: none !important;
+}
+
+i.fa-map-marker-alt {
+    animation: none !important;
+    color: var(--peach);
+    font-size: 2.2rem;
+}
+
+i.fa-map-marker-alt::after {
+    content: "\f3c5";
+    animation: none !important;
+    color: white;
+    font-size: 2.7rem;
+    position: absolute;
+    left: 1.1rem;
+    top: -.2rem;
+    z-index: -300;
+}
+
+.map-outer {
+    margin:auto;
+}
+
+.category {
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
 }
 
 .alert-light {
     text-align: center;
+    margin-top: 6rem;
+}
+
+.alert-light h1, .alert-light h2, .alert-light h3, .alert-light h4 {
+    margin: 0;
 }
 
 .card-header {
@@ -113,22 +223,63 @@ input::placeholder {
     text-align: center;
     background-color: inherit;
     border: none;
+    display: flex;
+    align-items: flex-end;
+}
+
+.header-text {
+    width: 100%;
+}
+
+.detail-container {
+    margin-left: 15px;
+}
+
+.detail .card-header {
+    min-height: 0;
+}
+
+.card-img-top {
+    margin-bottom: .5rem;
+    border: 4px solid var(--green);
+    border-radius: var(--small-border-radius);
+}
+
+.card-body {
+    padding: 0 1.25rem;
+}
+
+.card-footer:last-child  {
+    border-radius: 0;
+}
+
+.card-footer {
+    background-color: inherit; 
+    border-top: none; 
 }
 
 .name {
     size: 26px;
     color: var(--peach);
     font-family: var(--secondary-font);
+    font-weight: var(--secondary-font-weight);
+    font-style: var(--secondary-font-style);
 }
 
 .model_address {
     font-size: 24px;
     color: var(--brown);
     font-family: var(--secondary-font);
+    font-weight: var(--secondary-font-weight);
+    font-style: var(--secondary-font-style);
 }
 
 .home-text {
     padding-bottom: 4rem;
+}
+
+.vote {
+   padding: 0 2rem;
 }
 
 .masked-elf {
@@ -138,9 +289,45 @@ input::placeholder {
 }
 
 .sponsors img {
-    width: 500px;
+    width: 100%;
     height: auto;
-    max-width: 66%;
+    max-height: 10rem;
     display: block;
-    margin: 0 auto;
+    margin: auto;
+}
+
+.sponsor-row {
+    margin: auto;
+}
+
+.sponsor-row h3 {
+    color: var(--brown);
+}
+
+.ec {
+    max-height: 8rem !important;
+}
+
+.tworock {
+    max-height: 6rem !important;
+}
+
+.sponsor {
+    margin: auto 0;
+    padding: 0;
+    height: 10rem;
+}
+
+.sponsor:first-child {
+    border-right: 1px solid var(--brown);
+}
+
+.sponsor:last-child {
+    border-left: 1px solid var(--brown);
+}
+
+.shadow {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }

@@ -6,6 +6,7 @@
   left: 0%;
   height: 100%;
   width: 100%;
+  z-index: -10000;
 }
 
 .snow-container i {
@@ -13,7 +14,7 @@
   display: block;
 }
 
-i:nth-child(1) {
+.snow-container i:nth-child(1) {
   top: -20%;
   left: 5%;
   font-size: 2rem;
@@ -22,7 +23,7 @@ i:nth-child(1) {
   animation-delay: 2s;
 }
 
-i:nth-child(2) {
+.snow-container i:nth-child(2) {
   top: -20%;
 
   left: 20%;
@@ -32,7 +33,7 @@ i:nth-child(2) {
   animation-delay: 1s;
 }
 
-i:nth-child(3) {
+.snow-container i:nth-child(3) {
   top: -20%;
   left: 30%;
   font-size: 3rem;
@@ -41,7 +42,7 @@ i:nth-child(3) {
   animation-delay: .5s;
 }
 
-i:nth-child(4) {
+.snow-container i:nth-child(4) {
   top: -20%;
   left: 40%;
   font-size: 3rem;
@@ -50,7 +51,7 @@ i:nth-child(4) {
   animation-delay: 1.5s;
 }
 
-i:nth-child(5) {
+.snow-container i:nth-child(5) {
   top: -30%;
   right: 40%;
   font-size: 6rem;
@@ -59,7 +60,7 @@ i:nth-child(5) {
   animation-delay: 2s;
 }
 
-i:nth-child(6) {
+.snow-container i:nth-child(6) {
   top: -20%;
   right: 25%;
   font-size: 4rem;
@@ -68,7 +69,7 @@ i:nth-child(6) {
   animation-delay: 1s;
 }
 
-i:nth-child(7) {
+.snow-container i:nth-child(7) {
   top: -30%;
   right: 15%;
   font-size: 5rem;
@@ -77,7 +78,7 @@ i:nth-child(7) {
   animation-delay: 3s;
 }
 
-i:nth-child(8) {
+.snow-container i:nth-child(8) {
   top: -20%;
   right: 5%;
   font-size: 1rem;

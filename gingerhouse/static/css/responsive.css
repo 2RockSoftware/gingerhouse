@@ -1,0 +1,82 @@
+@media (min-width: 992px){
+    .logo-box {
+        height: 48rem !important;
+    }
+    
+    .logo-container {
+        height: 42rem;
+    }
+    
+    .jumbotron {
+        min-height: 48rem;
+    }
+}
+
+@media (min-width: 576px){
+    .jumbotron {
+        max-height: 32rem;
+    }
+}
+
+@media (max-width: 576px){
+    .jumbotron {
+        max-height: 22rem;
+    }
+}
+
+@media (max-width: 768px){
+    .sponsor {
+        border: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 990px){
+    .white {
+        padding: 0 3rem;
+    }
+}
+
+@media (max-width: 421px){
+    .white {
+        padding: 0 3rem;
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 281px){
+    .white {
+        padding: 0 3rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1079px) {
+    i.fa-map-marker-alt::after {
+        left: .74rem !important;
+    }
+}
+
+@media (max-width: 768px){
+    i.fa-map-marker-alt::after {
+        left: 13.01rem !important;
+        top: -4.01px !important;
+    }
+    
+    .map-outer .col-md-10 {
+        padding: 1rem 0;
+        margin: 0;
+    }
+    
+    .map-outer .col-md-2 {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media (max-width: 578px){
+    i.fa-map-marker-alt::after {
+        content: " " !important;
+    }
+
+}

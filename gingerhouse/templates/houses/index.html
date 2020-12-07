@@ -4,14 +4,24 @@
 
 {% block content %}
     
-    <div class="contianer-fluid text-center col-md-4 home-container">
-        <h2>Voting is open until December 30</h2>
-        <p> <a href="https://www.google.com/maps/d/u/0/viewer?mid=1rzkgK5HgPTe00XUVYzhauv8Jp3882ADy&ll=36.07568285226868%2C-79.09972604999999&z=19">Walking Map</a></p>
+    <div class="contianer-fluid text-center col-md-6 home-container home-text">
+        <h2>Voting is open until</h2>
+        <h2>December 30</h2>
     </div>
+   
+        <div class="container-fluid text-center col-md-6 home-container home-text row">
+            <div class="map-outer col-md-10 row">
+                <i class="fas fa-map-marker-alt col-md-2"></i>
+                 <a class="col-md-10" href="https://www.google.com/maps/d/u/0/viewer?mid=1rzkgK5HgPTe00XUVYzhauv8Jp3882ADy&ll=36.07568285226868%2C-79.09972604999999&z=19">
+                    <h3>Creation Locations</h3>
+                </a>
+            </div> 
+        </div>
+
     
-    <div class="card donate-card" style="width: 100%; padding:2rem; margin-bottom: 4rem;">
+    <div class="card donate-card col-md-10 shadow">
         <div class="row">
-            <div class="col-md-8 center-text">
+            <div class="col-md-8">
               <h3>In Benefit of <span class="peach">community giving fund's emergency housing assistance</span> for orange county, NC</h1>            
             </div>
             <div class="col-md-4 vertical-align">
@@ -25,9 +35,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <div class="ginger-bread"></div>
+                <div class="ginger-bread vertical-align">
+                    <h3 class="white">Tap Gingerbread house to vote</h3>
+                </div>
             </div>
-            <div class="col-md-6 vertical-align">
+            <div class="col-md-6 vertical-align vote">
                 <h1 class="peach">
                     You may vote once in each category
                 </h1>
@@ -38,25 +50,29 @@
     {% regroup object_list by category as category_list %}
     {% for category in category_list %}
         {% include 'includes/banner.html' with content=category.grouper %}
-        <div class="house-list">
+        <div class="house-list padding-bottom-10rem">
             <div class="row">
             {% for house in category.list %}
                 <div class="house col-md-4" id="house-{{ house.id }}">
                     <div class="card-header">
-                        <!-- bottom align header text -->
-                        <div class="header-text">
+                        <a class="header-text" href="{{ house.get_absolute_url }}">
                             <h2 class="name">{{ house.name }}</h2>
-                            <h3 class="model_address">{{ house.model_address }}</h3>    
-                        </div>
+                            <h3 class="model_address">{{ house.model_address }}</h3>
+                        <a/> 
                     </div>
                     <div class="card-body">
                         <a href="{{ house.get_absolute_url }}"><img class="card-img-top image" alt="{{ house.name }} image"
                             src="{% if house.image %}{{ house.image.url }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
                         /></a>
-                        <p class="location">
+                        
+                        <div class="location text-center">
                             Located At:<br>
-                            <span class="display_address">{{ house.display_address | linebreaks }}</span>
-                        </p>                    
+                            <span class="display_address text-center">
+                                <a href="https://www.google.com/maps/d/u/0/viewer?mid=1rzkgK5HgPTe00XUVYzhauv8Jp3882ADy&ll=36.07568285226868%2C-79.09972604999999&z=19">
+                                {{ house.display_address | linebreaks }}
+                                </a>
+                            </span>
+                        </div>                    
                     </div>
                 </div>
             {% endfor %}
