@@ -99,7 +99,9 @@ SESSION_COOKIE_SECURE = True
 
 SESSION_COOKIE_HTTPONLY = True
 
-ALLOWED_HOSTS = [os.environ['DOMAIN']]
+ALLOWED_HOSTS = ['gingerhouse.tworock.io', 'homesfortheholidays-2020.com',
+                'www.homesfortheholidays-2020.com', 'homesfortheholidays2020.com',
+                'www.homesfortheholidays2020.com', ]
 
 # Use template caching on deployed servers
 for backend in TEMPLATES:
