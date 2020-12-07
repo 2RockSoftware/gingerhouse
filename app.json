@@ -1,0 +1,9 @@
+{
+    "comment": "Shell scripts to run before and after Dokku deployment",
+    "scripts": {
+        "dokku": {
+            "predeploy": "bash scripts/predeploy.sh",
+            "postdeploy": "bash scripts/postdeploy.sh"
+        }
+    }
+}
