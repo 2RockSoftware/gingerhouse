@@ -1,20 +1,30 @@
+from django.db.models import OuterRef, Subquery, ImageField
 from django.shortcuts import redirect, reverse
 from django.views.generic import ListView, DetailView, FormView
 
 from gingerhouse.houses.forms import VoteForm
 from gingerhouse.houses.models import GingerHouse, Vote
+from gingerhouse.photos.models import Photo
 
 
 class HousesListView(ListView):
     model = GingerHouse
     template_name = 'houses/index.html'
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs = qs.annotate(
+            image=Subquery(Photo.objects.filter(house=OuterRef("id"), is_primary=True)[:1].values("image"),
+                           output_field=ImageField())
+        )
+        return qs
+
 
 class HouseDetailView(DetailView):
     model = GingerHouse
     template_name = 'houses/detail.html'
     context_object_name = "house"
-    
+
     def get_context_data(self, **kwargs):
         ctx = super(HouseDetailView, self).get_context_data(**kwargs)
         ctx["form"] = VoteForm(ginger_house=ctx["object"])
@@ -24,7 +34,7 @@ class HouseDetailView(DetailView):
 class VoteView(FormView):
     template_name = 'houses/detail.html'
     form_class = VoteForm
-    
+
     def get_ginger_house(self):
         ginger_house_id = self.kwargs.get("ginger_house_id")
         ginger_house = GingerHouse.objects.get(pk=ginger_house_id)

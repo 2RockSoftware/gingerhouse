@@ -62,7 +62,7 @@
                     </div>
                     <div class="card-body">
                         <a href="{{ house.get_absolute_url }}"><img class="card-img-top image" alt="{{ house.name }} image"
-                            src="{% if house.image %}{{ house.image.url }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
+                            src="{% if house.image %}/media/{{ house.image }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
                         /></a>
                         
                         <div class="location text-center">

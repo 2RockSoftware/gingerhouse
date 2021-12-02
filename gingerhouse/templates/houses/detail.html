@@ -21,7 +21,7 @@
             </div>
             <div class="card-body">
                 <img class="card-img-top image" alt="{{ house.name }} image"
-                    src="{% if house.image %}{{ house.image.url }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
+                    src="{% if house.primary_image %}{{ house.primary_image.image.url }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
                 />
             </div>
             <div class="card-footer">

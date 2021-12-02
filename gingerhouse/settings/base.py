@@ -22,7 +22,6 @@ ADMINS = (
 )
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,7 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sitemaps',
     # local apps
-    'gingerhouse.houses'
+    'gingerhouse.houses',
+    'gingerhouse.photos',
 ]
 
 MIDDLEWARE = [
@@ -205,3 +205,5 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

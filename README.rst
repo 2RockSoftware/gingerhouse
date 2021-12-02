@@ -25,8 +25,8 @@ First clone the repository from BitBucket and switch to the new directory::
 
 Next, create a virtual environment and install all of the requirements::
 
-  (iticket)$ pip shell
-  (iticket)$ pipenv install --dev
+  (gingerhouse)$ pip shell
+  (gingerhouse)$ pipenv install --dev
 
 Now, create a local settings file and set your DJANGO_SETTINGS_MODULE to use it:::
 
