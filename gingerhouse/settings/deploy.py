@@ -68,12 +68,12 @@ STATIC_ROOT = os.path.join(PUBLIC_ROOT, 'static')
 
 MEDIA_ROOT = '/storage/media/'
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '%(CACHE_HOST)s' % os.environ,
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '%(CACHE_HOST)s' % os.environ,
+#     }
+# }
 
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
@@ -100,8 +100,8 @@ SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 
 ALLOWED_HOSTS = ['gingerhouse.tworock.io', 'homesfortheholidays-2020.com',
-                'www.homesfortheholidays-2020.com', 'homesfortheholidays2020.com',
-                'www.homesfortheholidays2020.com', ]
+                 'www.homesfortheholidays-2020.com', 'homesfortheholidays2020.com',
+                 'www.homesfortheholidays2020.com', ]
 
 # Use template caching on deployed servers
 for backend in TEMPLATES:
