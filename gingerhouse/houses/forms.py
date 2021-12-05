@@ -14,9 +14,9 @@ class VoteForm(forms.Form):
 
     def clean(self):
         cleaned_data = self.cleaned_data
-        # is there a vote with this email to same house category?
+        # is there a vote with this email on this entry already?
         email = cleaned_data.get("email")
-        already_voted = Vote.objects.filter(email=email, ginger_house__category=self.ginger_house.category).exists()
+        already_voted = Vote.objects.filter(email=email, ginger_house=self.ginger_house).exists()
         if already_voted:
-            raise forms.ValidationError("You have already voted in this category")
+            raise forms.ValidationError("You have already voted for this entry")
         return cleaned_data
