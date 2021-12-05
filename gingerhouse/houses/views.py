@@ -1,3 +1,5 @@
+from random import shuffle
+
 from django.db.models import OuterRef, Subquery, ImageField
 from django.shortcuts import redirect, reverse
 from django.views.generic import ListView, DetailView, FormView
@@ -12,7 +14,7 @@ class HousesListView(ListView):
     template_name = 'houses/index.html'
 
     def get_queryset(self):
-        qs = super().get_queryset()
+        qs = super().get_queryset().order_by('name')
         qs = qs.annotate(
             image=Subquery(Photo.objects.filter(house=OuterRef("id"), is_primary=True)[:1].values("image"),
                            output_field=ImageField())
