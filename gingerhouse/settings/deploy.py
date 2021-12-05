@@ -99,9 +99,7 @@ SESSION_COOKIE_SECURE = True
 
 SESSION_COOKIE_HTTPONLY = True
 
-ALLOWED_HOSTS = ['gingerhouse.tworock.io', 'homesfortheholidays-2020.com',
-                 'www.homesfortheholidays-2020.com', 'homesfortheholidays2020.com',
-                 'www.homesfortheholidays2020.com', ]
+ALLOWED_HOSTS = ['gingerhouse.tworock.io', 'homesfortheholidays2021.com', 'www.homesfortheholidays2021.com', ]
 
 # Use template caching on deployed servers
 for backend in TEMPLATES:
