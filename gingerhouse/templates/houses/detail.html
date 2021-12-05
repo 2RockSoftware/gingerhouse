@@ -5,6 +5,13 @@
 
 {% block body_class %}detail{% endblock %}
 
+{% block extra-css %}
+<!-- Required Core Stylesheet -->
+<link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.5.2/dist/css/glide.core.min.css">
+
+<!-- Optional Theme Stylesheet -->
+<link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.5.2/dist/css/glide.theme.min.css">
+{% endblock %}
 
 {% block content %}
 
@@ -12,71 +19,110 @@
 
     <div class="padding-bottom-10rem">
         <div class="row">
-        <div class="house col-md-8" id="house-{{ house.id }}">
-            <div class="card-header">
-                <div class="header-text">
-                    <h2 class="name">{{ house.name }}</h2>
-                    <h3 class="model_address">{{ house.model_address }}</h3> 
+            <div class="house col-md-8" id="house-{{ house.id }}">
+                <div class="card-header">
+                    <div class="header-text">
+                        <h2 class="name">{{ house.name }}</h2>
+                        <h3 class="model_address">{{ house.model_address }}</h3>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <p class="location text-center">
+                        <span class="green">Located At:</span><br>
+                        <span class="display_address">
+                             <a href="https://www.google.com/maps/d/u/0/viewer?mid=1rzkgK5HgPTe00XUVYzhauv8Jp3882ADy&ll=36.07568285226868%2C-79.09972604999999&z=19">
+                            {{ house.display_address }}
+                            </a>
+                        </span>
+                    </p>
                 </div>
             </div>
-            <div class="card-body">
-                <img class="card-img-top image" alt="{{ house.name }} image"
-                    src="{% if house.primary_image %}{{ house.primary_image.image.url }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
-                />
-            </div>
-            <div class="card-footer">
-                <p class="location text-center">
-                    <span class="green">Located At:</span><br>
-                    <span class="display_address">
-                         <a href="https://www.google.com/maps/d/u/0/viewer?mid=1rzkgK5HgPTe00XUVYzhauv8Jp3882ADy&ll=36.07568285226868%2C-79.09972604999999&z=19">
-                        {{ house.display_address }}
-                        </a>
-                    </span>
-                </p>                    
-            </div>
-        </div>
-        
-        <div class="col-md-4 vertical-align">
-            <form action="{% url 'houses:vote' ginger_house_id=house.id %}" method="POST">
-                {% csrf_token %}
 
-                {% if form.non_field_errors %}
-                  <div class="non-field-errors errors">
-                    {% for err in form.non_field_errors %}
-                      <p class="form-error">{{ err }}</p>
-                    {% endfor %}
-                  </div>
-                {% endif %}
+            <div class="col-md-4 vertical-align">
+                <form action="{% url 'houses:vote' ginger_house_id=house.id %}" method="POST">
+                    {% csrf_token %}
 
-                {% for field in form %}
-                    {% if field.errors %}
-                        <div class="form-group error controls center-block">
-                            <div class="">{{ field }}</div>
-                        </div>
-                        <div class="errors">
-                            <p class="help-inline">
-                                <span>{% for error in  field.errors %}{{ error }}{% endfor %}</span>
-                            </span>
-                        </div>
-                    {% else %}
-                        <div class="form-group controls center-block">
-                            <div class="controls">{{ field }}</div>
-                        </div>
-                        <div class="">
-                            {% if field.help_text %}
-                                <p class="help-inline"><span>{{ field.help_text }}</span></p>
-                            {% endif %}
-                        </div>
+                    {% if form.non_field_errors %}
+                      <div class="non-field-errors errors">
+                        {% for err in form.non_field_errors %}
+                          <p class="form-error">{{ err }}</p>
+                        {% endfor %}
+                      </div>
                     {% endif %}
-                {% endfor %}
-                
-                <div class="form-group text-center">
-                    <button class="btn background-green"><h3 class="white">Vote</h3></button>
-                </div>
-            </form>
+
+                    {% for field in form %}
+                        {% if field.errors %}
+                            <div class="form-group error controls center-block">
+                                <div class="">{{ field }}</div>
+                            </div>
+                            <div class="errors">
+                                <p class="help-inline">
+                                    <span>{% for error in  field.errors %}{{ error }}{% endfor %}</span>
+                                </p>
+                            </div>
+                        {% else %}
+                            <div class="form-group controls center-block">
+                                <div class="controls">{{ field }}</div>
+                            </div>
+                            <div class="">
+                                {% if field.help_text %}
+                                    <p class="help-inline"><span>{{ field.help_text }}</span></p>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="form-group text-center">
+                        <button class="btn background-green"><h3 class="white">Vote</h3></button>
+                    </div>
+                </form>
+            </div>
         </div>
+
+        <div class="row pt-5">
+            <div class="glide">
+              <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    {% for photo in house.photo_set.all %}
+                      <li class="glide__slide">
+                        <img class="card-img-top image" alt="{{ house.name }} image"
+                            src="{{ photo.image.url }}"
+                        />
+                      </li>
+                    {% endfor %}
+                </ul>
+              </div>
+
+              <div class="glide__arrows d-none d-md-block" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
         </div>
     </div>
     
     {% include "includes/email-required-text.html" %}
+{% endblock %}
+
+{% block extra-js %}
+    <script type="text/javascript" src="https://unpkg.com/@glidejs/glide@3.5.2/dist/glide.min.js"></script>
+    <script type="text/javascript">
+        new Glide('.glide', {
+          type: 'carousel',
+          startAt: 0,
+          perView: 1,
+          autoplay: 5000,
+          peek: { before: 250, after: 250 },
+
+          breakpoints: {
+              1200: {
+                  type: 'carousel',
+                  startAt: 0,
+                  perView: 1,
+                  autoplay: 3000,
+                  peek: {before: 33, after: 33},
+              }
+          }
+        }).mount()
+    </script>
 {% endblock %}
