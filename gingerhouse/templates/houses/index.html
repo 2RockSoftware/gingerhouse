@@ -5,8 +5,16 @@
 {% block content %}
     
     <div class="contianer-fluid text-center col-md-6 home-container home-text">
-        <h2>Voting is open until</h2>
-        <h2>December 30</h2>
+        <h1>Not Your Mother’s Gingerbread Competition.</h1>
+        <p>Part art project, part opportunity to clean the cupboards, our contest only has one rule:
+            Anything VISIBLE must be EDIBLE.</p>
+
+        <p>This Year’s Theme:
+            FAVORITE STRUCTURE FROM AROUND THE WORLD
+            Come see 30 confectionery creations on display in Hillsborough’s downtown windows now through January 2.</p>
+
+        <p>EVERYONE is encouraged to VOTE on the PEOPLE’S CHOICE AWARD</p>
+        <h2>VOTING IS OPEN NOW THROUGH 11:59pm on DECEMBER 21</h2>
     </div>
    
         <div class="container-fluid text-center col-md-6 home-container home-text row">
@@ -22,7 +30,7 @@
     <div class="card donate-card col-md-10 shadow">
         <div class="row">
             <div class="col-md-8">
-              <h3>In Benefit of <span class="peach">community giving fund's emergency housing assistance</span> for orange county, NC</h1>            
+              <h3>In Benefit of <span class="peach">Hillsborough Arts Council and Orange Congregations in Mission</span> for Orange County, NC</h1>
             </div>
             <div class="col-md-4 vertical-align">
                 {% include 'includes/donate-button.html' %}
@@ -36,12 +44,12 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="ginger-bread vertical-align">
-                    <h3 class="white">Tap Gingerbread house to vote</h3>
+                    <h3 class="white">Tap Gingerbread house to see more and vote</h3>
                 </div>
             </div>
             <div class="col-md-6 vertical-align vote">
                 <h1 class="peach">
-                    You may vote once in each category
+                    Vote for as many entries as you like, one vote per entry. 
                 </h1>
             </div>
         </div>
@@ -62,7 +70,7 @@
                     </div>
                     <div class="card-body">
                         <a href="{{ house.get_absolute_url }}"><img class="card-img-top image" alt="{{ house.name }} image"
-                            src="{% if house.image %}{{ house.image.url }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
+                            src="{% if house.image %}/media/{{ house.image }}{% else %}/static/img/placeholder-house.jpg{% endif %}"
                         /></a>
                         
                         <div class="location text-center">

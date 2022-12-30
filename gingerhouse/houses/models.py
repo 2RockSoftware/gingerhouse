@@ -5,7 +5,7 @@ from django.shortcuts import reverse
 class Category(models.Model):
     """Categories are used to limit voting and present entries in groupings"""
     name = models.CharField(max_length=255)
-    
+
     class Meta:
         verbose_name_plural = "Categories"
 
@@ -21,21 +21,18 @@ class GingerHouse(models.Model):
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     display_address = models.TextField(blank=True)
     model_address = models.TextField(blank=True)
-    image = models.ImageField(
-        verbose_name="Ginger house image",
-        upload_to='uploads/',
-        max_length=255,
-        blank=True,
-        null=True,
-        help_text="Ginger house image. Horizontal format, cropped to 812x680 px.",
-    )
-    
+
     class Meta:
         ordering = ["-category__name", ]
 
     def __str__(self):
         return self.name
-        
+
+    @property
+    def primary_image(self):
+        image = self.photo_set.filter(is_primary=True).first()
+        return image
+
     def get_absolute_url(self):
         return reverse("houses:detail", kwargs={"pk": self.id})
 
@@ -46,4 +43,3 @@ class Vote(models.Model):
 
     def __str__(self):
         return "{} - {} - {}".format(self.email, self.ginger_house.category.name, self.ginger_house.name)
-

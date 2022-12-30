@@ -16,7 +16,7 @@ pre-commit = "*"
 
 [packages]
 uwsgi = "*"
-django = "==2.2.10"
+django = "==3.2.9"
 cssselect = "==1.0.3"
 dateutils = "==0.6.6"
 markdown = "==3.0.1"
